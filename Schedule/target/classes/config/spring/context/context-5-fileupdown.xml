@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 클랙스 객체화. si로 값 부여함 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8"/><!-- 업로드된 파일 한글처리 -->
+		<property name="maxUploadSize" value="10485760"></property><!-- 1048576 : 1mb를 바이트로 환산함. 바이트 단위로 작성 -->
+	</bean>
+	
+	
+</beans>
