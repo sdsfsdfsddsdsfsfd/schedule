@@ -12,7 +12,8 @@
 			}
 			
 			function popup(){
-				var popupWindow = window.open('popupcontent.jsp', 'popupwindow', 'width=600,height=400');
+				let url = "popup.do"
+				let popupWindow = window.open(url, 'popupwindow', 'width=600,height=400');
 				
 				//(경로, 팝업창명, 창 크기)
 				//절대경로 : 파일/디렉토리의 전체 경로.(모든 경로). 위치를명확하게 지정함
@@ -22,6 +23,14 @@
 				//Spring에서는 일반적으로 절대 경로 사용함.
 				
 				popupwindow.focus();
+			}
+			
+			function check(){
+				//let dan = document.getElementById("dan").value;
+				let member = document.getElementById("member").value;
+				alert(member);
+				let t_members = document.getElementById("t_members").value;
+				t_members.textContent = member;
 			}
 		</script>
 	</head>
@@ -47,9 +56,8 @@
 					
 					<tr>
 						<td>팀원</td>
-						<td><input name="id"></td>
+						<td><input name="id" id="member"> <input type="button" value="검색" onclick="check()"></td>
 					</tr>
-					
 					
 					<tr>
 						<td>프로젝트 내용</td>

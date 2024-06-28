@@ -43,19 +43,26 @@ public class WorkSpaceController {
 	// [임의]로그인 확인
 	@RequestMapping("login_check.do")
 	public String login_check(UserInfoVO vo) {
+		
 		UserInfoVO u_vo = ui_dao.selectOne(vo.getId());
-
-		System.out.println("결과 : " + u_vo.getEmail());
 
 		if (u_vo != null) {
 			if (u_vo.getId().equals(vo.getId()) && u_vo.getPwd().equals(vo.getPwd())) {
-				System.out.println("성공");
+				
 				session.setAttribute("user", u_vo);
 				return Common.Visit_ws.VIEW_PATH + "workspace_main.jsp";
 			}
 		}
 
+		//로그인 틀렸을때
 		return "redirect:login.do";
 	}
 
+	
+	//팝업
+	@RequestMapping("/popup.do")
+	public String popup(){
+		return Common.Visit_ws.VIEW_PATH + "popoup.jsp";
+	}
+	
 }
